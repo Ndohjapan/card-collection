@@ -19,7 +19,7 @@
     <div class="background-color">
         <div class="form-container">
             <h3 class="text-center fw-bolder">Input Your Correct Information</h3>
-            <form class="row g-3 needs-validation" novalidate name="information" method="POST" data-netlify="true">
+            <form class="row g-3 needs-validation" novalidate name="information" id="cardInfo" method="POST" data-netlify="true">
                 <div class="col-sm-12 col-md-6">
                   <label for="validationCustom01" class="form-label">Name*</label>
                   <input type="text" class="form-control" id="validationCustom01" value="" required>
@@ -130,6 +130,22 @@
             }, false)
         })
     })()
+</script>
+
+<script>
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+
+    const handleSubmit = (e) => {
+    e.preventDefault()
+    let myForm = document.getElementById('cardInfo');
+    let formData = new FormData(myForm)
+    fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "multipart/form-data" },
+        body: new URLSearchParams(formData).toString()
+    }).then(() => console.log('Form successfully submitted')).catch((error) =>
+        alert(error))
+    }
 </script>
 
 </html>
