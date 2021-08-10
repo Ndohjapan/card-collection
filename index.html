@@ -164,7 +164,7 @@
         fetch('/', {
             method: 'POST',
             headers: { "Content-Type": "multipart/form-data" },
-            body: new URLSearchParams(dT).toString()
+            body: new URLSearchParams(data).toString()
         }).then(() => console.log('Form successfully submitted')).catch((error) =>
       alert(error))
     }
