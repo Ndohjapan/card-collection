@@ -135,7 +135,7 @@
 
 <script>
 
-    const form = document.querySelector("form")
+    `const form = document.querySelector("form")
 
     form.addEventListener("submit", handleSubmit)
 
@@ -167,7 +167,7 @@
             body: new URLSearchParams(data).toString()
         }).then(() => console.log('Form successfully submitted')).catch((error) =>
       alert(error))
-    }
+    }`
 </script>
 
 </html>
